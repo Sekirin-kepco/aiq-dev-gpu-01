@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  aira-lite:
+    build: .
+    image: aiq/aira-chat:latest
+    container_name: aira-lite
+    working_dir: /app
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MODEL_BACKEND=faiss_local
+      - PYTHONPATH=/app
+      - INDEX_DIR=/app/index_data
+      - LLM_BACKEND=nvidia_mistral
+      - NVIDIA_API_KEY=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
+    volumes:
+      - ./index_data:/app/index_data:rw
+      - ./sample_docs:/app/sample_docs:ro
+      - ./ingest:/app/ingest:ro
+      - ./app:/app:rw

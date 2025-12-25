@@ -1,0 +1,4 @@
+AI-Q is a research assistant blueprint that helps build on-premise document search and report generation.
+This sample document is intentionally short and used for smoke-testing the ingest pipeline.
+
+It contains a few sentences that mention RAG, retrieval, and embedding.

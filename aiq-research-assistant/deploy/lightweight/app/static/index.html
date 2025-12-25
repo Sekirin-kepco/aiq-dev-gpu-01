@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Q Research Assistant Chat</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>AI-Q Research Assistant</h1>
+            <p id="status-indicator" class="status-indicator">接続中...</p>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="message system">
+                <p>こんにちは。AI-Q Research Assistant へようこそ。何かお手伝いできることはありますか？</p>
+            </div>
+        </div>
+        
+        <div class="chat-input-area">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="message-input" 
+                    placeholder="メッセージを入力してください..." 
+                    autocomplete="off"
+                >
+                <button id="send-button" class="send-btn">送信</button>
+            </div>
+            <div class="loading" id="loading-indicator" style="display: none;">
+                <span class="spinner"></span> 処理中...
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

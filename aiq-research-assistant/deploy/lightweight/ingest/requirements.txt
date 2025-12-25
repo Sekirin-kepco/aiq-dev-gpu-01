@@ -1,0 +1,6 @@
+sentence-transformers==2.2.2
+# Use a recent faiss-cpu wheel compatible with manylinux and modern Python
+faiss-cpu==1.13.0
+numpy
+tqdm
+PyMuPDF

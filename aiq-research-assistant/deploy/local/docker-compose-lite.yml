@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  aira:
+    build:
+      context: ../..
+      dockerfile: deploy/local/Dockerfile
+    image: aiq-aira-lite:latest
+    restart: unless-stopped
+    environment:
+      - AIRA_ENV=local
+      # Use NIM by default if available; override to use LOCAL_LLM to point to a lite LLM endpoint
+      - NIM_ENDPOINT=${NIM_ENDPOINT:-}
+      - LOCAL_LLM_ENDPOINT=${LOCAL_LLM_ENDPOINT:-}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../../data:/app/data:rw
+      - ../../models:/app/models:rw
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+
+# NOTE: This compose is a lightweight scaffolding for development/testing only.
+# To perform a full production deployment, follow the instructions in docs/get-started.
